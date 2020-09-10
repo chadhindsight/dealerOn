@@ -5,7 +5,7 @@ type Rover = {
   y: number;
 };
 
-//Store the expected output
+//Store the expected itput values
 let rover1: Rover = {
   start: "1 2 N",
   input: "LMLMLMLMM",
@@ -13,13 +13,14 @@ let rover1: Rover = {
   y: 0,
 };
 let rover2: Rover = {
-  start: "1 2 N",
-  input: "LMLMLMLMM",
+  start: "3 3 E",
+  input: "MMRMMRMRRM",
   x: 0,
   y: 0,
 };
 
-// NB: input is the string you get from the rover input property
+// going North and East increment up, going forward South and West decrement
+
 function commandFunc(boundX: number, boundY: number, rover) {
   let actions = rover.input.split("");
 
@@ -32,13 +33,8 @@ function commandFunc(boundX: number, boundY: number, rover) {
     } else if (action === "L") {
       turnLeft(rover);
     }
-    //Validate input
-    else {
-      console.log(
-        "That command is not a rover command. Please enter either r, l or m"
-      );
-    }
   });
+
   //Log all previous locations from travel log
   console.log(rover.travelLog);
 }
