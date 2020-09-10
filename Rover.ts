@@ -1,13 +1,13 @@
 function commandFunc(boundX, boundY, str: string) {
-  let moves = str.split("");
+  let actions = str.split("");
 
-  moves.forEach((move) => {
-    if (move === "F") {
+  actions.forEach((action) => {
+    if (action === "M") {
       moveForward(rover);
       rover.travelLog.push([rover.x, rover.y]);
-    } else if (move === "R") {
+    } else if (action === "R") {
       turnRight(rover);
-    } else if (move === "L") {
+    } else if (action === "L") {
       turnLeft(rover);
     }
     //Validate input
