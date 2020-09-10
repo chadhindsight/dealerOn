@@ -1,17 +1,14 @@
-function commandFunc(str: string) {
+function commandFunc(boundX, boundY, str: string) {
   let moves = str.split("");
 
   moves.forEach((move) => {
-    if (move === "f") {
+    if (move === "F") {
       moveForward(rover);
       rover.travelLog.push([rover.x, rover.y]);
-    } else if (move === "r") {
+    } else if (move === "R") {
       turnRight(rover);
-    } else if (move === "l") {
+    } else if (move === "L") {
       turnLeft(rover);
-    } else if (move === "b") {
-      moveBackwards(rover);
-      rover.travelLog.push([rover.x, rover.y]);
     }
     //Validate input
     else {
@@ -24,4 +21,4 @@ function commandFunc(str: string) {
   console.log(rover.travelLog);
 }
 
-commandFunc("rfbfrfb");
+// commandFunc("rfbfrfb");
