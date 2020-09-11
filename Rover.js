@@ -74,7 +74,6 @@ var turnRight = function (rover) {
             console.log(rover.direction);
             break;
     }
-    console.log("turnRight was called!");
 };
 function commandFunc(rover) {
     var actions = rover.input.split("");
@@ -87,17 +86,9 @@ function commandFunc(rover) {
         }
         else if (action === "L") {
             turnLeft(rover);
-            // OLD SHIT
-            //   if (action === "M") {
-            //     move(rover);
-            //   } else if (action === "R") {
-            //     console.log("soon come");
-            //   } else if (action === "L") {
-            //     console.log("soon come");
-            //   }
         }
     });
-    //Log all previous locations from travel log
+
     console.log(rover2.x + " " + rover2.y + " " + rover2.direction);
 }
 commandFunc(rover2);
