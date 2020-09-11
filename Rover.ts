@@ -41,7 +41,7 @@ function move(vehicle) {
     }
   }
 }
-
+// LOGIC TO TURN LEFT
 const turnLeft = function (rover) {
   switch (rover.direction) {
     case "N":
@@ -63,7 +63,8 @@ const turnLeft = function (rover) {
   console.log("turnLeft was called!");
 };
 
-function turnRight(rover) {
+// LOGIC TO TURN RIGHT
+const turnRight = function (rover) {
   switch (rover.direction) {
     case "N":
       rover.direction = "E";
@@ -84,8 +85,7 @@ function turnRight(rover) {
       console.log(rover.direction);
       break;
   }
-  console.log("turnRight was called!");
-}
+};
 
 function commandFunc(rover) {
   let actions = rover.input.split("");

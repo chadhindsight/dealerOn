@@ -11,7 +11,7 @@ var rover2 = {
     y: 3,
     direction: "E"
 };
-// going forward North and East increment up, going forward South and West decrement
+// going forward North and East increment, going forward South and West decrement
 function move(vehicle) {
     //Make sure the rover is within bounds
     if (vehicle.x >= 0 && vehicle.y >= 0 && vehicle.x <= 5 && vehicle.y <= 5) {
@@ -33,27 +33,71 @@ function move(vehicle) {
         }
     }
 }
+// LOGIC TO TURN LEFT
+var turnLeft = function (rover) {
+    switch (rover.direction) {
+        case "N":
+            rover.direction = "W";
+            console.log(rover.direction);
+            break;
+        case "S":
+            rover.direction = "E";
+            console.log(rover.direction);
+            break;
+        case "E":
+            rover.direction = "N";
+            console.log(rover.direction);
+            break;
+        case "W":
+            rover.direction = "S";
+            console.log(rover.direction);
+    }
+    console.log("turnLeft was called!");
+};
+// LOGIC TO TURN RIGHT
+var turnRight = function (rover) {
+    switch (rover.direction) {
+        case "N":
+            rover.direction = "E";
+            console.log(rover.direction);
+            break;
+        case "S":
+            rover.direction = "W";
+            console.log(rover.direction);
+            break;
+        case "E":
+            rover.direction = "S";
+            console.log(rover.direction);
+            break;
+        case "W":
+            rover.direction = "N";
+            console.log(rover.direction);
+            break;
+    }
+    console.log("turnRight was called!");
+};
 function commandFunc(rover) {
     var actions = rover.input.split("");
     actions.forEach(function (action) {
         if (action === "M") {
-            //   moveForward(rover);
-            // } else if (action === "R") {
-            //   turnRight(rover);
-            // } else if (action === "L") {
-            //   turnLeft(rover);
-            if (action === "M") {
-                move(rover);
-            }
-            else if (action === "R") {
-                console.log("soon come");
-            }
-            else if (action === "L") {
-                console.log("soon come");
-            }
+            move(rover);
+        }
+        else if (action === "R") {
+            turnRight(rover);
+        }
+        else if (action === "L") {
+            turnLeft(rover);
+            // OLD SHIT
+            //   if (action === "M") {
+            //     move(rover);
+            //   } else if (action === "R") {
+            //     console.log("soon come");
+            //   } else if (action === "L") {
+            //     console.log("soon come");
+            //   }
         }
     });
     //Log all previous locations from travel log
-    console.log(rover1.x, rover1.y);
+    console.log(rover2.x + " " + rover2.y + " " + rover2.direction);
 }
-commandFunc(rover1);
+commandFunc(rover2);
