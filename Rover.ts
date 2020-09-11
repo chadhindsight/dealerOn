@@ -22,23 +22,21 @@ let rover2: Rover = {
 // going forward North and East increment, going forward South and West decrement
 function move(vehicle) {
   //Make sure the rover is within bounds
-  if (vehicle.x >= 0 && vehicle.y >= 0 && vehicle.x <= 5 && vehicle.y <= 5) {
-    switch (vehicle.direction) {
-      case "N":
-        vehicle.y++;
-        break;
-      case "S":
-        vehicle.y--;
-        break;
-      case "E":
-        vehicle.x++;
-        break;
-      case "W":
-        vehicle.x--;
-        break;
-      default:
-        break;
-    }
+  switch (vehicle.direction) {
+    case "N":
+      vehicle.y++;
+      break;
+    case "S":
+      vehicle.y--;
+      break;
+    case "E":
+      vehicle.x++;
+      break;
+    case "W":
+      vehicle.x--;
+      break;
+    default:
+      break;
   }
 }
 // LOGIC TO TURN LEFT
@@ -60,7 +58,6 @@ const turnLeft = function (rover) {
       rover.direction = "S";
       console.log(rover.direction);
   }
-  console.log("turnLeft was called!");
 };
 
 // LOGIC TO TURN RIGHT
@@ -110,7 +107,11 @@ function commandFunc(rover) {
   });
 
   //Log all previous locations from travel log
-  console.log(`${rover2.x} ${rover2.y} ${rover2.direction}`);
+  if (rover.x >= 0 && rover.y >= 0 && rover.x <= 5 && rover.y <= 5) {
+    console.log(`${rover2.x} ${rover2.y} ${rover2.direction}`);
+  } else {
+    console.log("Out of bounds!");
+  }
 }
 
 commandFunc(rover2);
