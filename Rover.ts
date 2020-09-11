@@ -1,25 +1,25 @@
 type Rover = {
-  start: string;
   input: string;
   x: number;
   y: number;
+  direction: string;
 };
 
-//Store the expected itput values
+//Store the expected input values in objects
 let rover1: Rover = {
-  start: "1 2 N",
   input: "LMLMLMLMM",
-  x: 0,
-  y: 0,
+  x: 1,
+  y: 2,
+  direction: "N",
 };
 let rover2: Rover = {
-  start: "3 3 E",
   input: "MMRMMRMRRM",
-  x: 0,
-  y: 0,
+  x: 3,
+  y: 3,
+  direction: "E",
 };
 
-// going North and East increment up, going forward South and West decrement
+// going forward North and East increment up, going forward South and West decrement
 
 function commandFunc(boundX: number, boundY: number, rover) {
   let actions = rover.input.split("");
