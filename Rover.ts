@@ -78,8 +78,9 @@ const turnRight = function (rover) {
   }
 };
 
-function commandFunc(rover) {
+function commandFunc(rover, other) {
   let actions = rover.input.split("");
+  let actions2 = rover.input.split("");
 
   actions.forEach((action) => {
     if (action === "M") {
@@ -100,6 +101,5 @@ function commandFunc(rover) {
   }
 }
 
-// Call the command function once per rover
-commandFunc(rover1);
-commandFunc(rover2);
+//Command function gets run on each rover
+commandFunc(rover2, commandFunc(rover1, null));
