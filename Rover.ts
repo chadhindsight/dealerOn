@@ -19,7 +19,7 @@ let rover2: Rover = {
   direction: "E",
 };
 
-// going forward North and East increment, going forward South and West decrement
+// Going forward North and East increment, going forward South and West decrement
 function move(vehicle) {
   switch (vehicle.direction) {
     case "N":
@@ -93,10 +93,13 @@ function commandFunc(rover) {
 
   //This ensures the rover is within bounds
   if (rover.x >= 0 && rover.y >= 0 && rover.x <= 5 && rover.y <= 5) {
-    console.log(`${rover2.x} ${rover2.y} ${rover2.direction}`);
+    // String interpolation is used to return the updated coordinates in a string
+    console.log(`${rover.x} ${rover.y} ${rover.direction}`);
   } else {
     console.log("Out of bounds!");
   }
 }
 
+// Call the command function once per rover
+commandFunc(rover1);
 commandFunc(rover2);
