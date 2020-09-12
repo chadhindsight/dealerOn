@@ -21,7 +21,6 @@ let rover2: Rover = {
 
 // going forward North and East increment, going forward South and West decrement
 function move(vehicle) {
-  //Make sure the rover is within bounds
   switch (vehicle.direction) {
     case "N":
       vehicle.y++;
@@ -44,19 +43,18 @@ const turnLeft = function (rover) {
   switch (rover.direction) {
     case "N":
       rover.direction = "W";
-      console.log(rover.direction);
+
       break;
     case "S":
       rover.direction = "E";
-      console.log(rover.direction);
+
       break;
     case "E":
       rover.direction = "N";
-      console.log(rover.direction);
+
       break;
     case "W":
       rover.direction = "S";
-      console.log(rover.direction);
   }
 };
 
@@ -65,21 +63,17 @@ const turnRight = function (rover) {
   switch (rover.direction) {
     case "N":
       rover.direction = "E";
-      console.log(rover.direction);
       break;
     case "S":
       rover.direction = "W";
-      console.log(rover.direction);
       break;
 
     case "E":
       rover.direction = "S";
-      console.log(rover.direction);
       break;
 
     case "W":
       rover.direction = "N";
-      console.log(rover.direction);
       break;
   }
 };
@@ -94,19 +88,10 @@ function commandFunc(rover) {
       turnRight(rover);
     } else if (action === "L") {
       turnLeft(rover);
-
-      // OLD SHIT
-      //   if (action === "M") {
-      //     move(rover);
-      //   } else if (action === "R") {
-      //     console.log("soon come");
-      //   } else if (action === "L") {
-      //     console.log("soon come");
-      //   }
     }
   });
 
-  //Log all previous locations from travel log
+  //This ensures the rover is within bounds
   if (rover.x >= 0 && rover.y >= 0 && rover.x <= 5 && rover.y <= 5) {
     console.log(`${rover2.x} ${rover2.y} ${rover2.direction}`);
   } else {
