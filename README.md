@@ -10,6 +10,7 @@ By putting the expected input values that we are testing for in separate rover o
 type Rover = {
   input: string;
   x: number;
+  y: number;
 };
 ```
 
